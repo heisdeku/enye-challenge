@@ -1,25 +1,20 @@
 import React from 'react'
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, Text, Circle, Spacer, Button } from '@chakra-ui/react'
 
 const Navbar = () => {
   return (
     <Box w='100%' h='80px' boxShadow='8px 3px 12px 1px #bcb7b7'>
-      <Flex padding='7px 30px' align='center' justify='space-between'>
+      <Flex padding='7px 30px' align='center'>
         <Flex align='center'>
-          <Box
-            bgColor='grey'
-            padding='7px'
-            borderRadius='50%'
-            w='50px'
-            h='50px'
-          >
+          <Circle bgColor='grey' padding='7px' w='50px' h='50px'>
             <Text fontSize='24px' fontWeight='bold' textAlign='center'>
               A
             </Text>
-          </Box>
+          </Circle>
           <Text marginLeft='10px'>Welcome, Admin</Text>
         </Flex>
-        <Box justifyContent='flex-end'>Logout</Box>
+        <Spacer />
+        <Button justifyContent='flex-end'>Logout</Button>
       </Flex>
     </Box>
   )
