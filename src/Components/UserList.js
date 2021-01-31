@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Grid, SimpleGrid } from '@chakra-ui/react'
+import { Box, SimpleGrid } from '@chakra-ui/react'
 import User from './User'
 import Pagination from './Pagination'
 
@@ -19,7 +19,7 @@ const UserList = ({ users }) => {
   return (
     <Box
       w='100%'
-      px={[0, null, '29px']}
+      px={['20px', null, '29px']}
       height='100vh'
       overflowY='scroll'
       paddingTop='25px'

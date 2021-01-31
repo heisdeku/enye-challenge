@@ -11,37 +11,53 @@ function UserDetails({
   date,
 }) {
   return (
-    <Box flex='1' w='100%' textAlign='left'>
+    <Box
+      d='flex'
+      flexDirection='column'
+      justify-content='space-between'
+      w='100%'
+      height='100%'
+      justifyContent='space-between'
+      textAlign='left'
+    >
       <Heading fontSize='xl'>{name}</Heading>
-
-      <Badge borderRadius='lg' p={2} bgColor='#011b33' color='white'>
-        Email
-      </Badge>
-      <Text mt={4}>{Email}</Text>
-
+      <Flex justify='space-between'>
+        <Text>Email</Text>
+        <Text>{Email}</Text>
+      </Flex>
+      <Spacer />
       <Flex>
-        <Badge borderRadius='lg' p={2} bgColor='#011b33' color='white'>
-          Username
-        </Badge>
+        <Text>Username</Text>
         <Spacer />
         <Text>{UserName}</Text>
       </Flex>
+      <Spacer />
       <Flex>
-        <Badge borderRadius='full' p={2} bgColor='#011b33' color='white'>
+        <Badge
+          borderRadius='full'
+          variant='solid'
+          bgColor='#011b33'
+          colorScheme='green'
+        >
           {CreditCardType}
         </Badge>
         <Spacer />
-        <Badge borderRadius='full' p={2} bgColor='#011b33' color='white'>
+        <Badge
+          borderRadius='full'
+          variant='solid'
+          bgColor='#011b33'
+          colorScheme='green'
+        >
           {PaymentMethod}
         </Badge>
       </Flex>
+      <Spacer />
       <Flex>
-        <Badge borderRadius='lg' p={2} bgColor='#011b33' color='white'>
-          Gender
-        </Badge>
+        <Text>Gender</Text>
         <Spacer />
         <Text>{Gender}</Text>
       </Flex>
+      <Spacer />
       <Flex>
         <Text>{PhoneNumber}</Text>
         <Spacer />

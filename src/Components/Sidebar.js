@@ -1,54 +1,138 @@
 import React from 'react'
-import { Box, Text, option } from '@chakra-ui/react'
+import { Flex, Box, Text, Input, Select, Spacer } from '@chakra-ui/react'
+import useWindowListener from '../hooks/useWindowListener'
 
-const Sidebar = ({ gender, pay, genderChange, payChange }) => {
-  return (
-    <Box
-      bgColor='#011b33'
-      color='white'
-      boxShadow='1xl'
-      p={8}
-      w={[0, null, '250px']}
-      height='100vh'
-      d='flex'
-      flexDirection='column'
-      justifyContent='flex-start'
-      alignItems='baseline'
-    >
-      <Text>Patient Manager</Text>
-      <Box>
-        <Text as='h4'>Filter By A Gender</Text>
-        <select as='button' value={gender} onChange={genderChange}>
-          <option selected>Choose an Option</option>
-          <option value='male' bg='rgba(59,130,246,0.5)'>
-            Male
-          </option>
-          <option value='female' bg='rgba(59,130,246,0.5)'>
-            Female
-          </option>
-          <option bg='rgba(59,130,246,0.5)'>Prefer to Skip</option>
-        </select>
+const Sidebar = ({
+  gender,
+  pay,
+  search,
+  genderChange,
+  payChange,
+  searchUser,
+}) => {
+  const [width] = useWindowListener()
+  if (width < 500) {
+    return (
+      <Box
+        p={2}
+        bgColor='#011b33'
+        color='white'
+        boxShadow='1xl'
+        pos='absolute'
+        bottom='0'
+        bg='#011b33'
+        w='100%'
+      >
+        <Input
+          my={8}
+          placeholder='Search for a User'
+          value={search}
+          onChange={searchUser}
+          size='md'
+          variant='flushed'
+        />
+        <Flex justify='space-between'>
+          <Box my={4}>
+            <Text as='h4' mb={3}>
+              Filter By A Gender
+            </Text>
+            <Select
+              placeholder='Choose an option'
+              size='md'
+              value={gender}
+              onChange={genderChange}
+            >
+              <option value='male'>Male</option>
+              <option value='female'>Female</option>
+              <option>Prefer to Skip</option>
+            </Select>
+          </Box>
+
+          <Box my={4}>
+            <Text as='h4' mb={3}>
+              Filter By Credit Card
+            </Text>
+            <Select
+              placeholder='Choose an option'
+              size='md'
+              value={pay}
+              onChange={payChange}
+            >
+              <option value='paypal'>Paypal</option>
+              <option value='check'>Check</option>
+              <option value='cc'>CC</option>
+              <option value='money order'>Money Order</option>
+            </Select>
+          </Box>
+        </Flex>
       </Box>
-      <Box>
-        <Text as='h4'>Filter By Credit Card Type</Text>
-        <select as='button' value={pay} onChange={payChange}>
-          <option selected>Choose an Option</option>
-          <option value='paypal' bg='rgba(59,130,246,0.5)'>
-            paypal
-          </option>
-          <option value='check' bg='rgba(59,130,246,0.5)'>
-            check
-          </option>
-          <option value='cc' bg='rgba(59,130,246,0.5)'>
-            cc
-          </option>
-          <option value='money order' bg='rgba(59,130,246,0.5)'>
-            money order
-          </option>
-        </select>
-      </Box>
-    </Box>
-  )
+    )
+  } else {
+    return (
+      <Flex
+        direction='column'
+        bg='#011b33'
+        color='white'
+        boxShadow='1xl'
+        p={8}
+        display={['none', null, 'flex']}
+        w={[0, null, '250px']}
+        height='100vh'
+        justify='flex-start'
+        align='flex-start'
+      >
+        <Text>Users Manager</Text>
+        <Input
+          my={8}
+          placeholder='Search for a User'
+          value={search}
+          onChange={searchUser}
+          size='md'
+          variant='flushed'
+        />
+
+        <Box my={4}>
+          <Text as='h4' mb={3}>
+            Filter By A Gender
+          </Text>
+          <Select
+            placeholder='Choose an option'
+            size='md'
+            value={gender}
+            onChange={genderChange}
+          >
+            <option value='male'>Male</option>
+            <option value='female'>Female</option>
+            <option>Prefer to Skip</option>
+          </Select>
+        </Box>
+
+        <Box my={4}>
+          <Text as='h4' mb={3}>
+            Filter By Credit Card
+          </Text>
+          <Select
+            placeholder='Choose an option'
+            size='md'
+            value={pay}
+            onChange={payChange}
+          >
+            <option value='paypal'>Paypal</option>
+            <option value='check'>Check</option>
+            <option value='cc'>CC</option>
+            <option value='money order'>Money Order</option>
+          </Select>
+        </Box>
+        <Spacer />
+        <Box backgroundColor='grey' boxShadow='md' borderRadius='10px' p={5}>
+          <Text fontSize='md'>
+            With The platform, You can check all the users you have under you,
+            filter them according to their Payment Method and Gender.
+          </Text>
+        </Box>
+      </Flex>
+    )
+  }
 }
 
 export default Sidebar
