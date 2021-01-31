@@ -126,8 +126,9 @@ const Sidebar = ({
         <Spacer />
         <Box backgroundColor='grey' boxShadow='md' borderRadius='10px' p={5}>
           <Text fontSize='md'>
-            With The platform, You can check all the users you have under you,
-            filter them according to their Payment Method and Gender.
+            With The platform, You can check all the users currently using your
+            ecommerce store, check out their details and filter them according
+            to their Payment Method and Gender.
           </Text>
         </Box>
       </Flex>

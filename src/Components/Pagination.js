@@ -13,23 +13,23 @@ const Pagination = ({ users, total, currentPage, paginate }) => {
       justifyContent='space-between'
       w='250px'
       float='right'
-      marginRight='35px'
+      marginRight='15px'
     >
-      <Text w='45px'>
+      <Text>
         <a href='!#' onClick={() => paginate(currentPage - 1)}>
           Prev
         </a>
       </Text>
       {pages.map((page, i) => {
         return (
-          <Text key={i} w='45px'>
+          <Text key={i}>
             <a href='!#' onClick={() => paginate(page)}>
               {page}
             </a>
           </Text>
         )
       })}
-      <Text w='45px'>
+      <Text>
         <a href='!#' onClick={() => paginate(currentPage + 1)}>
           Next
         </a>
